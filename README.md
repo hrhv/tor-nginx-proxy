@@ -4,12 +4,12 @@
 
 # Tor-nginx-proxy
 
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/harshit-budhraja/tor-nginx-proxy?include_prereleases)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/hrhv/tor-nginx-proxy?include_prereleases)
 ![license](https://img.shields.io/badge/license-GPLv3.0-brightgreen.svg?style=flat)
-[![Docker Hub pulls](https://img.shields.io/docker/pulls/harshitbudhraja/tor-nginx-proxy.svg)](https://hub.docker.com/r/harshitbudhraja/tor-nginx-proxy/)
-![Docker Image Size (tag)](https://img.shields.io/docker/image-size/harshitbudhraja/tor-nginx-proxy/latest)
+[![GHCR](https://img.shields.io/badge/GHCR-ghcr.io-blue)](https://github.com/hrhv/tor-nginx-proxy/pkgs/container/tor-nginx-proxy)
+![Docker Image Size](https://ghcr-badge.egpl.dev/hrhv/tor-nginx-proxy/size)
 
-[![Docker Hub badge](http://dockeri.co/image/harshitbudhraja/tor-nginx-proxy)](https://hub.docker.com/r/harshitbudhraja/tor-nginx-proxy/)
+> **Note:** Container images are now hosted on GitHub Container Registry (GHCR).
 
 The super easy and quick way to setup your web presence on the [Tor](https://www.torproject.org) network using [NGINX's](https://www.nginx.com) [proxy_pass](https://dev.to/danielkun/nginx-everything-about-proxypass-2ona) directive inside a [Docker](https://en.wikipedia.org/wiki/Docker_(software)) [container](https://en.wikipedia.org/wiki/Container_(virtualization)).
 
@@ -21,7 +21,7 @@ The super easy and quick way to setup your web presence on the [Tor](https://www
 1. Setup the proxy server at the **first time**
 
 ```sh
-docker run --restart=unless-stopped --rm --name tor-nginx-proxy -e "NGINX_PORT=80" -e "NGINX_PROXY_URL=<YOUR_APP_URL>" -p 3000:80 -v "/absolute/path/to/volume/dir/on/host/tor:/var/lib/tor/" harshitbudhraja/tor-nginx-proxy:latest
+docker run --restart=unless-stopped --rm --name tor-nginx-proxy -e "NGINX_PORT=80" -e "NGINX_PROXY_URL=<YOUR_APP_URL>" -p 3000:80 -v "/absolute/path/to/volume/dir/on/host/tor:/var/lib/tor/" ghcr.io/hrhv/tor-nginx-proxy:latest
 ```
 
 - With parameter `--restart=unless-stopped` the container will always restart on daemon startup or when it fails unexpectedly, unless it's explicitly stopped.
@@ -63,13 +63,13 @@ is serving from the file by reading it in any editor or terminal itself: `cat /a
 **Using curl:**
 
 ```bash
-curl https://raw.githubusercontent.com/harshit-budhraja/tor-nginx-proxy/master/docker-compose.yml --output docker-compose.yml
+curl https://raw.githubusercontent.com/hrhv/tor-nginx-proxy/master/docker-compose.yml --output docker-compose.yml
 ```
 
 **Using wget:**
 
 ```bash
-wget -O docker-compose.yml  https://raw.githubusercontent.com/harshit-budhraja/tor-nginx-proxy/master/docker-compose.yml
+wget -O docker-compose.yml  https://raw.githubusercontent.com/hrhv/tor-nginx-proxy/master/docker-compose.yml
 ```
 
 3. Modify value for the environment variable `NGINX_PROXY_URL` to configure your proxy pass url. When a request arrives to the container which is running over the tor network through tor-nginx-proxy, it proxies those requests to your application which must be accessible over the url you provide. (Tip: don't forget to include the protocol `http://` or `https://` and the port that your application is serving from).
