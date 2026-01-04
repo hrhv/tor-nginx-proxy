@@ -1,7 +1,7 @@
 services:
     tor-nginx-proxy:
         container_name: tor-nginx-proxy
-        image: harshitbudhraja/tor-nginx-proxy:latest
+        image: ghcr.io/hrhv/tor-nginx-proxy:latest
         restart: unless-stopped
         environment:
             - NGINX_PORT=80

@@ -3,7 +3,7 @@ FROM nginx:alpine
 # Metadata about the docker image
 LABEL name="tor-nginx-proxy"
 LABEL version="1.0.0-beta-1.0"
-LABEL maintainer="Harshit Budhraja (https://github.com/harshit-budhraja)"
+LABEL maintainer="Harshit Budhraja (https://github.com/hrhv)"
 
 # Update packages and install tor
 RUN apk --update --allow-untrusted --repository http://dl-4.alpinelinux.org/alpine/edge/community/ add \
