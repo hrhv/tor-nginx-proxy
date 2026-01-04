@@ -1,3 +1,4 @@
 *.temp
 tor/
 .cursor
+*.env
